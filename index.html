@@ -1,82 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Happy New Year</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HEARTS -->
 <div id="hearts"></div>
 
-<!-- PAGE 1 -->
-<div class="page active">
-  <h1>Happy New Year Apsaria</h1>
-  <p>A little journey through our year 💖</p>
-  <button onclick="nextPage()">Start</button>
-</div>
+<div class="container">
 
-<!-- PAGE 2 -->
-<div class="page">
-  <h2>Best Memory With Me?</h2>
-  <input placeholder="Type here..." />
-  <button onclick="nextPage()">Next</button>
-</div>
+  <!-- PAGE 1 -->
+  <div class="page active">
+    <h1>Happy New Year</h1>
+    <input id="nameInput" placeholder="Enter your name">
+    <button onclick="saveName()">Begin</button>
+  </div>
 
-<!-- PAGE 3 -->
-<div class="page">
-  <h2>Happiest Moment This Year?</h2>
-  <input placeholder="Type here..." />
-  <button onclick="nextPage()">Next</button>
-</div>
+  <!-- PAGE 2 -->
+  <div class="page">
+    <h2 class="typewriter">
+      This year wasn’t easy.  
+      We fought.  
+      We misunderstood.  
+      But we stayed.
+    </h2>
+    <button onclick="nextPage()">Next</button>
+  </div>
 
-<!-- PAGE 4 -->
-<div class="page">
-  <h2>Saddest Moment?</h2>
-  <input placeholder="Type here..." />
-  <button onclick="nextPage()">Next</button>
-</div>
+  <!-- PAGE 3 -->
+  <div class="page">
+    <p class="typewriter">
+      Some days were heavy.  
+      Some nights were silent.  
+      Still, we chose not to walk away.
 
-<!-- PAGE 5 -->
-<div class="page">
-  <h2>Angriest Moment?</h2>
-  <input placeholder="Type here..." />
-  <button onclick="nextPage()">Next</button>
-</div>
+      That choice means everything.
+    </p>
+    <button onclick="nextPage()">Next</button>
+  </div>
 
-<!-- PAGE 6 -->
-<div class="page">
-  <h2>Favourite Song This Year?</h2>
-  <input placeholder="Song name..." />
-  <button onclick="nextPage()">Next</button>
-</div>
+  <!-- PAGE 4 -->
+  <div class="page">
+    <p class="typewriter">
+      Love isn’t about perfect days.  
+      It’s about choosing the same person  
+      even on the hardest ones.
 
-<!-- PAGE 7 -->
-<div class="page">
-  <h2>Favourite Movie With Me?</h2>
-  <input placeholder="Movie name..." />
-  <button onclick="nextPage()">Next</button>
-</div>
+      And I choose you.
+    </p>
+    <button onclick="nextPage()">Next</button>
+  </div>
 
-<!-- PAGE 8 -->
-<div class="page">
-  <h2>Your Special Wish For Me 💌</h2>
-  <input placeholder="Write from heart..." />
-  <button onclick="nextPage()">Next</button>
-</div>
+  <!-- PAGE 5 : RESOLUTIONS -->
+  <div class="page">
+    <h2>Our 2026 Resolutions</h2>
 
-<!-- PAGE 9 -->
-<div class="page">
-  <h1>Thank You For Being My 2025 💗</h1>
-  <p>Let’s make 2026 even more beautiful together.</p>
+    <div class="resolutions">
+      <label><input type="checkbox" class="res"> Fighting but never breaking up</label>
+      <label><input type="checkbox" class="res"> If angry, we call — not disappear</label>
+      <label><input type="checkbox" class="res"> No sleeping upset without trying</label>
+      <label><input type="checkbox" class="res"> Choosing each other over ego</label>
+      <label><input type="checkbox" class="res"> Growing together, not apart</label>
+    </div>
+
+    <p class="note">
+      You need to agree to all of these —  
+      only then this journey can move forward 🤍
+    </p>
+
+    <button id="promiseBtn" disabled onclick="nextPage()">I Promise ❤️</button>
+  </div>
+
+  <!-- PAGE 6 -->
+  <div class="page">
+    <p class="typewriter">
+      Thank you for staying.  
+      Thank you for trying.  
+      Thank you for choosing us.
+
+      You made 2025 meaningful.
+    </p>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <!-- PAGE 7 FINAL -->
+  <div class="page">
+    <h2>Thank you for being my 2025 heart</h2>
+    <p>
+      Let’s make 2026 even more beautiful —  
+      together.
+    </p>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-
