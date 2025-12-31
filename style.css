@@ -2,99 +2,114 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
+  background: linear-gradient(135deg, #1a001a, #000000);
   height: 100vh;
   overflow: hidden;
-  font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(135deg, #ff4f9a, #1a001f);
-  color: white;
+  color: #ffd6f0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page {
   display: none;
-  height: 100vh;
-  width: 100vw;
-  padding: 40px;
   text-align: center;
-
-  background: linear-gradient(135deg, #ff4f9a, #1a001f);
+  max-width: 700px;
+  padding: 40px;
 }
 
 .page.active {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: block;
 }
 
 h1, h2 {
-  font-family: 'Pacifico', cursive;
+  color: #ff5fa2;
   margin-bottom: 20px;
 }
 
 p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 input {
   padding: 12px;
-  width: 80%;
-  border-radius: 12px;
+  width: 250px;
+  border-radius: 25px;
   border: none;
   margin-bottom: 20px;
-  font-size: 1rem;
 }
 
 button {
-  padding: 12px 25px;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #ff5fa2;
+  color: black;
   border: none;
-  border-radius: 30px;
-  background: #fff;
-  color: #ff4f9a;
-  font-size: 1rem;
+  border-radius: 25px;
+  font-size: 16px;
   cursor: pointer;
 }
 
-/* HEARTS */
-.heart {
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Typewriter */
+.typewriter {
+  white-space: pre-line;
+  border-right: 2px solid pink;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Resolutions */
+.resolutions {
+  text-align: left;
+  margin: 20px auto;
+  max-width: 450px;
+}
+
+.resolutions label {
+  display: block;
+  margin: 10px 0;
+}
+
+.note {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Hearts */
+#hearts span {
   position: fixed;
-  width: 15px;
-  height: 15px;
-  background: pink;
-  transform: rotate(45deg);
-  animation: fall 6s linear infinite;
+  bottom: -20px;
+  font-size: 20px;
+  color: pink;
+  animation: floatUp linear infinite;
 }
 
-.heart::before,
-.heart::after {
-  content: '';
-  width: 15px;
-  height: 15px;
-  background: pink;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.heart::before {
-  top: -8px;
-  left: 0;
-}
-
-.heart::after {
-  left: -8px;
-  top: 0;
-}
-
-@keyframes fall {
-  from {
-    top: -10%;
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
-  to {
-    top: 110%;
+  100% {
+    transform: translateY(-110vh) scale(1.5);
     opacity: 0;
   }
 }
