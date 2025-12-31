@@ -1,76 +1,42 @@
-// PAGE FLOW
-let currentPage = 0;
-const totalPages = 14;
-const pages = [];
-for(let i=0;i<=totalPages;i++) pages.push(document.getElementById('page'+i));
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Caveat', cursive; overflow:hidden; height:100vh; width:100vw; perspective:800px; }
 
-function showPage(n){
-  pages.forEach(p=>p.style.display='none');
-  pages[n].style.display='block';
+.page { display:none; position:absolute; width:100%; height:100%; text-align:center; color:#fff; padding-top:20vh; transition:all 0.8s ease; }
+
+/* Gradients for each page */
+.page0 { background: linear-gradient(135deg,#ff69b4,#000); }
+.page1 { background: linear-gradient(135deg,#6a0572,#1f1b24); }
+.page2 { background: linear-gradient(135deg,#220033,#440044); }
+.page3 { background: linear-gradient(135deg,#2c003e,#5c005c); }
+.page4 { background: linear-gradient(135deg,#0a1f44,#112244); }
+.page5 { background: linear-gradient(135deg,#1c1c2e,#2e2e44); }
+.page6 { background: linear-gradient(135deg,#440022,#660044); }
+.page7 { background: linear-gradient(135deg,#1f0033,#330055); }
+.page8 { background: linear-gradient(135deg,#220011,#440022); }
+.page9 { background: linear-gradient(135deg,#2c0033,#5c0055); }
+.page10 { background: linear-gradient(135deg,#1a0033,#330044); }
+.page11 { background: linear-gradient(135deg,#2a0022,#550044); }
+.page12 { background: linear-gradient(135deg,#000022,#000044); }
+.page13 { background: linear-gradient(135deg,#220022,#440044); }
+.page14 { background: linear-gradient(135deg,#330022,#660044); }
+
+h1 { font-family:'Pacifico', cursive; font-size:3rem; margin-bottom:20px; opacity:0; animation:fadeZoom 2s forwards; }
+p { font-size:1.5rem; margin:10px 20px; opacity:0; animation:fadeIn 2s forwards; }
+button { padding:12px 25px; font-size:1.2rem; border:none; border-radius:25px; cursor:pointer; margin-top:20px; font-weight:bold; color:#ff69b4; background:#fff; transition:all 0.2s; }
+button:hover { transform:scale(1.1); background:#ff69b4; color:#fff; }
+
+.heart { position:absolute; width:20px; height:20px; background-color:#ff69b4; transform:rotate(45deg); border-radius:3px; animation:fall3D linear infinite; opacity:0.8; z-index:10; }
+
+@keyframes fall3D {
+0% { transform:translateY(-50px) rotate(45deg) rotateX(0deg) rotateY(0deg); opacity:0; }
+10% { opacity:1; }
+50% { transform:translateY(50vh) rotate(45deg) rotateX(180deg) rotateY(90deg); }
+100% { transform:translateY(110vh) rotate(45deg) rotateX(360deg) rotateY(360deg); opacity:0; }
 }
-showPage(currentPage);
 
-function nextPage(){
-  if(currentPage<totalPages-1){
-    currentPage++;
-    showPage(currentPage);
-  } else {
-    // SUMMARY
-    let summaryHTML = `
-      <p><b>Happiest memory:</b> ${document.getElementById('q1').value}</p>
-      <p><b>Funniest moment:</b> ${document.getElementById('q2').value}</p>
-      <p><b>Saddest moment:</b> ${document.getElementById('q3').value}</p>
-      <p><b>Angriest moment:</b> ${document.getElementById('q4').value}</p>
-      <p><b>Favorite song:</b> ${document.getElementById('q5').value}</p>
-      <p><b>Favorite movie:</b> ${document.getElementById('q6').value}</p>
-      <p><b>Favorite memory:</b> ${document.getElementById('q7').value}</p>
-      <p><b>Special wishes:</b> ${document.getElementById('q8').value}</p>
-      <p><b>Fun resolution:</b> ${document.getElementById('q9').value}</p>
-      <p><b>Best compliment:</b> ${document.getElementById('q10').value}</p>
-    `;
-    document.getElementById('summary').innerHTML = summaryHTML;
-    currentPage++;
-    showPage(currentPage);
-  }
-}
+.confetti { position:absolute; width:10px; height:10px; opacity:0.8; animation:confettiFall linear infinite; }
+@keyframes confettiFall { 0%{transform:translateY(-10px) rotate(0deg);} 100%{transform:translateY(100vh) rotate(360deg);} }
 
-function restart(){ currentPage=0; showPage(currentPage); }
-
-// TYPEWRITER EFFECT
-const subtitle = "A new year, a new chapter, together...";
-let idx=0;
-function typeWriter(){
-  if(idx<subtitle.length){
-    document.getElementById("subtitle").innerHTML += subtitle.charAt(idx);
-    idx++;
-    setTimeout(typeWriter,50);
-  }
-}
-typeWriter();
-
-// HEARTS CREATION
-function createHeart(){
-  const heart = document.createElement('div');
-  heart.className='heart';
-  heart.style.left=Math.random()*window.innerWidth+'px';
-  heart.style.width=15+Math.random()*15+'px';
-  heart.style.height=heart.style.width;
-  heart.style.animationDuration=(4+Math.random()*3)+'s';
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),7000);
-}
-setInterval(createHeart,300);
-
-// CONFETTI CREATION
-function createConfetti(){
-  if(currentPage>=4 && currentPage<=13){
-    const confetti = document.createElement('div');
-    confetti.className='confetti';
-    confetti.style.left=Math.random()*window.innerWidth+'px';
-    confetti.style.background=['#ff69b4','#ffc371','#69ffb4'][Math.floor(Math.random()*3)];
-    confetti.style.animationDuration=(2+Math.random()*2)+'s';
-    document.body.appendChild(confetti);
-    setTimeout(()=>confetti.remove(),4000);
-  }
-}
-setInterval(createConfetti,200);
+.typewriter { display:inline-block; border-right:2px solid #fff; white-space:nowrap; overflow:hidden; }
+input { padding:10px; border-radius:10px; border:none; width:60%; margin-top:15px; font-size:1rem; }
+#summary { font-size:1.3rem; margin-top:20px; }
