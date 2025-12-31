@@ -11,52 +11,36 @@
 
 <div class="container">
 
-  <!-- PAGE 1 -->
+  <!-- PAGE 1: Name Input -->
   <div class="page active">
     <h1>Happy New Year</h1>
     <input id="nameInput" placeholder="Enter your name">
     <button onclick="saveName()">Begin</button>
   </div>
 
-  <!-- PAGE 2 -->
-  <div class="page">
-    <h2 class="typewriter">
-      This year wasn’t easy.  
-      We fought.  
-      We misunderstood.  
-      But we stayed.
-    </h2>
-    <button onclick="nextPage()">Next</button>
-  </div>
-
-  <!-- PAGE 3 -->
+  <!-- PAGE 2-4: Emotional Wishes Pages -->
   <div class="page">
     <p class="typewriter">
-      Some days were heavy.  
-      Some nights were silent.  
-      Still, we chose not to walk away.
-
-      That choice means everything.
+      This year wasn’t easy. We fought. We misunderstood. But we stayed together through it all.
+    </p>
+    <button onclick="nextPage()">Next</button>
+  </div>
+  <div class="page">
+    <p class="typewriter">
+      Some days were heavy. Some nights were silent. Still, we chose not to walk away. That choice means everything.
+    </p>
+    <button onclick="nextPage()">Next</button>
+  </div>
+  <div class="page">
+    <p class="typewriter">
+      Love isn’t about perfect days. It’s about choosing the same person even on the hardest ones. And I choose you.
     </p>
     <button onclick="nextPage()">Next</button>
   </div>
 
-  <!-- PAGE 4 -->
-  <div class="page">
-    <p class="typewriter">
-      Love isn’t about perfect days.  
-      It’s about choosing the same person  
-      even on the hardest ones.
-
-      And I choose you.
-    </p>
-    <button onclick="nextPage()">Next</button>
-  </div>
-
-  <!-- PAGE 5 : RESOLUTIONS -->
+  <!-- PAGE 5: Resolutions -->
   <div class="page">
     <h2>Our 2026 Resolutions</h2>
-
     <div class="resolutions">
       <label><input type="checkbox" class="res"> Fighting but never breaking up</label>
       <label><input type="checkbox" class="res"> If angry, we call — not disappear</label>
@@ -64,34 +48,80 @@
       <label><input type="checkbox" class="res"> Choosing each other over ego</label>
       <label><input type="checkbox" class="res"> Growing together, not apart</label>
     </div>
-
     <p class="note">
-      You need to agree to all of these —  
-      only then this journey can move forward 🤍
+      You need to agree to all of these — only then this journey can move forward 🤍
     </p>
-
     <button id="promiseBtn" disabled onclick="nextPage()">I Promise ❤️</button>
   </div>
 
-  <!-- PAGE 6 -->
+  <!-- PAGE 6-13: Questions Pages -->
   <div class="page">
-    <p class="typewriter">
-      Thank you for staying.  
-      Thank you for trying.  
-      Thank you for choosing us.
+    <h2>Best memory with me</h2>
+    <textarea class="answerInput" placeholder="Type your answer here"></textarea>
+    <button class="nextBtn" onclick="nextQuestion(this)">Next</button>
+  </div>
+  <div class="page">
+    <h2>Worst memory with me</h2>
+    <textarea class="answerInput" placeholder="Type your answer here"></textarea>
+    <button class="nextBtn" onclick="nextQuestion(this)">Next</button>
+  </div>
+  <div class="page">
+    <h2>Saddest moment this year</h2>
+    <textarea class="answerInput" placeholder="Type your answer here"></textarea>
+    <button class="nextBtn" onclick="nextQuestion(this)">Next</button>
+  </div>
+  <div class="page">
+    <h2>Angriest moment this year</h2>
+    <textarea class="answerInput" placeholder="Type your answer here"></textarea>
+    <button class="nextBtn" onclick="nextQuestion(this)">Next</button>
+  </div>
+  <div class="page">
+    <h2>Happiest moment this year</h2>
+    <textarea class="answerInput" placeholder="Type your answer here"></textarea>
+    <button class="nextBtn" onclick="nextQuestion(this)">Next</button>
+  </div>
+  <div class="page">
+    <h2>Favourite song of 2025</h2>
+    <textarea class="answerInput" placeholder="Type your answer here"></textarea>
+    <button class="nextBtn" onclick="nextQuestion(this)">Next</button>
+  </div>
+  <div class="page">
+    <h2>Favourite movie watched with me</h2>
+    <textarea class="answerInput" placeholder="Type your answer here"></textarea>
+    <button class="nextBtn" onclick="nextQuestion(this)">Next</button>
+  </div>
+  <div class="page">
+    <h2>Special wish for us</h2>
+    <textarea class="answerInput" placeholder="Type your answer here"></textarea>
+    <button class="nextBtn" onclick="nextQuestion(this)">Next</button>
+  </div>
 
-      You made 2025 meaningful.
-    </p>
+  <!-- PAGE 14: Spin Wheel -->
+  <div class="page">
+    <h2>Spin the Wheel!</h2>
+    <div id="wheel">
+      <div class="wheel-segment">Smile</div>
+      <div class="wheel-segment">Memory</div>
+      <div class="wheel-segment">Wish</div>
+      <div class="wheel-segment">Promise</div>
+      <div class="wheel-segment">Surprise</div>
+    </div>
+    <button onclick="spinWheel()">Spin</button>
+    <p id="wheelResult"></p>
+    <button id="nextFromWheel" onclick="nextPage()" style="display:none;">Next</button>
+  </div>
+
+  <!-- PAGE 15: Answers Summary -->
+  <div class="page">
+    <h2>Your 2025 in your words</h2>
+    <div id="summary"></div>
     <button onclick="nextPage()">Next</button>
   </div>
 
-  <!-- PAGE 7 FINAL -->
+  <!-- PAGE 16: Final Page -->
   <div class="page">
     <h2>Thank you for being my 2025 heart</h2>
-    <p>
-      Let’s make 2026 even more beautiful —  
-      together.
-    </p>
+    <p>Let’s make 2026 even more beautiful — together.</p>
   </div>
 
 </div>
