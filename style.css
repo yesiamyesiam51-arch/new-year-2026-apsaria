@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #1a001a, #000000);
+  background: linear-gradient(135deg, #ff5fa2, #000000);
   height: 100vh;
   overflow: hidden;
   color: #ffd6f0;
@@ -31,13 +31,23 @@ body {
 }
 
 h1, h2 {
-  color: #ff5fa2;
+  color: #ffb6d9;
   margin-bottom: 20px;
 }
 
 p {
   font-size: 18px;
   line-height: 1.8;
+}
+
+textarea {
+  width: 90%;
+  min-height: 100px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 
 input {
@@ -112,4 +122,30 @@ button:disabled {
     transform: translateY(-110vh) scale(1.5);
     opacity: 0;
   }
+}
+
+/* Spin Wheel */
+#wheel {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px solid #ff5fa2;
+  margin: 20px auto;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.wheel-segment {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  transform-origin: 100% 100%;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
 }
